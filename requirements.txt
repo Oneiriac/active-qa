@@ -2,6 +2,9 @@ tensorflow==1.12.2
 tensorboard
 flask
 flask-wtf
+spacy
+spacy-wordnet
+pattern
 wtforms
 absl-py
 google-apputils
