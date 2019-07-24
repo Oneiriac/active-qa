@@ -80,22 +80,6 @@
         </div>
     </div>
 </nav>
-
-<hr>
 {% block content %}{% endblock %}
-<section class="section">
-    <div class="container">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
-    </div>
-</section>
-
 </body>
 </html>

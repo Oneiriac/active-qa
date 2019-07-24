@@ -15,7 +15,7 @@ class Config(object):
 
 
 class QuestionForm(FlaskForm):
-    question = StringField('Question')
+    question = StringField('Reformulate Question')
     submit = SubmitField('Submit')
 
 

@@ -3,15 +3,29 @@
 {% block content %}
 <section class="section">
     <div class="container">
-        <h1>Reformulate Question</h1>
         <form action="" method="post" novalidate>
             {{ form.hidden_tag() }}
+            <h1 class="title">{{ form.question.label }}</h1>
             <p>
-                {{ form.question.label }}<br>
-                {{ form.question(size=32) }}
+                {{ form.question(
+                    required=True, autofocus=True, class='input is-primary is-rounded', type="text", size=32
+                ) }}
             </p>
-            <p>{{ form.submit() }}</p>
         </form>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="content">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        </div>
     </div>
 </section>
 {% endblock %}
