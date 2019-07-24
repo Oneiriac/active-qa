@@ -8,9 +8,8 @@ library. No support is provided.
 *If you use this code for your research, please [cite the paper](#bibtex).*
 
 ## NOTE: Changes made for Python 3 compatibility
-This fork is modified to work with Python 3; it was tested on Python 3.6 and 
-may also work with Python 3.7 (or lower versions), but currently requires Tensorflow
-1.12 which does not have a Python 3.7 build. The changes made are to do
+This fork is modified to work with Python 3; it was tested on Python 3.6 and partially on Python 3.7 (preprocessing
+and conversion to SearchQA format were not tested). The changes made are to do
 with:
 - imports (e.g. importing `zip_longest` instead of `izip_longest`) 
 - string encoding/decoding
@@ -19,7 +18,6 @@ Python 3 instead of a `list` object as in Python 2
 
 The `requirements.txt` has also been modified to specify the
 specific package versions required:
-- `tensorflow==1.12.2` (see https://github.com/google/active-qa/issues/16)
 - `pandas==0.24.2` (pandas 0.25 gives the error
 `AttributeError: module 'pandas' has no attribute 'core'` when starting the
 environment server)
