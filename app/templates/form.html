@@ -5,27 +5,47 @@
     <div class="container">
         <form action="" method="post" novalidate>
             {{ form.hidden_tag() }}
-            <h1 class="title">{{ form.question.label }}</h1>
-            <p>
-                {{ form.question(
-                    required=True, autofocus=True, class='input is-primary is-rounded', type="text", size=32
-                ) }}
-            </p>
+            <div class="field has-addons">
+                <div class="control is-expanded">
+                    {{ form.question(
+                    required=True, autofocus=True, class='input is-primary is-rounded is-large', type="text",
+                    placeholder='What question do you want to reformulate?'
+                    ) }}
+                </div>
+                <div class="control">
+                    {{ form.submit(
+                    class='button is-primary is-bold is-large'
+                    ) }}
+                </div>
+            </div>
         </form>
     </div>
-    <hr>
+</section>
+<hr>
+<section class="section">
     <div class="container">
-        <div class="content">
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            <ul>
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% endwith %}
-        </div>
+        {% if reformulations %}
+        <nav class="panel">
+            <p class="panel-heading">
+                Results
+            </p>
+            {% for r in reformulations %}
+            <label class="panel-block">
+                <input type="checkbox">
+                {{ r }}
+            </label>
+            {% endfor %}
+<!--            <label class="panel-block">-->
+<!--                <input type="checkbox">-->
+<!--                <strong>Add seed query</strong>-->
+<!--            </label>-->
+            <div class="panel-block">
+                <button class="button is-link is-outlined is-fullwidth">
+                    reset selections
+                </button>
+            </div>
+        </nav>
+        {% endif %}
     </div>
 </section>
 {% endblock %}
