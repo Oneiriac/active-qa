@@ -3,7 +3,7 @@ from typing import Optional
 
 from flask import Flask, render_template, flash
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, SelectField
 
 from app.reformulator import FlaskReformulator
 
@@ -17,6 +17,11 @@ class Config(object):
 class QuestionForm(FlaskForm):
     question = StringField('Question')
     submit = SubmitField('Submit')
+
+
+class SelectMethodForm(FlaskForm):
+    choices = [('active-qa', 'ActiveQA'), ('synonyms', 'Synonyms')]
+    select = SelectField(label='Select Engine', choices=choices)
 
 
 app = Flask(__name__)
