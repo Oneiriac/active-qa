@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 
 {% block head %}
-    <link rel="stylesheet" href="../static/background.css">
 {% endblock %}
 
 {% block content %}
 <section class="section video-container has-background-black is-marginless">
     <video class="video" autoplay muted loop>
-        <source src="../static/late-night.webm" type="video/webm">
+        <source src="../static/media/late-night.webm" type="video/webm">
     </video>
     <div class="container">
         <form action="" method="post" novalidate>
@@ -15,13 +14,13 @@
             <div class="field has-addons">
                 <div class="control is-expanded">
                     {{ form.question(
-                    required=True, autofocus=True, class='input is-primary is-rounded is-large', type="text",
+                    required=True, autofocus=True, class='input is-rounded is-large', type="text",
                     placeholder='What question do you want to reformulate?'
                     ) }}
                 </div>
                 <div class="control">
                     {{ form.submit(
-                    class='button is-primary is-rounded is-bold is-large'
+                    class='button is-mbot-purple is-rounded is-bold is-large'
                     ) }}
                 </div>
             </div>
@@ -29,7 +28,7 @@
     </div>
 </section>
 {% if reformulations %}
-<section class="hero is-small is-white is-paddingless">
+<section class="hero is-small is-black is-paddingless">
     <div class="hero-body">
         <div class="container">
             <h2 class="title">
@@ -38,14 +37,14 @@
         </div>
     </div>
 </section>
-<section class="section is-paddingless has-background-white">
+<section class="section is-paddingless has-background-black">
     <div class="container">
-        <nav class="panel">
+        <nav class="panel is-black">
 <!--            <p class="panel-heading">-->
 <!--                Results-->
 <!--            </p>-->
             {% for r in reformulations %}
-            <label class="panel-block">
+            <label class="panel-block has-text-white">
                 <input type="checkbox">
                 {{ r }}
             </label>
@@ -55,7 +54,7 @@
 <!--                <strong>Add seed query</strong>-->
 <!--            </label>-->
             <div class="panel-block">
-                <button class="button is-primary is-bold is-fullwidth">
+                <button class="button is-mbot-purple is-bold is-fullwidth">
                     reset selections
                 </button>
             </div>

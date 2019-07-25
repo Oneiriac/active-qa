@@ -4,6 +4,7 @@ from typing import Optional
 from flask import Flask, render_template, flash
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
+from wtforms.validators import DataRequired
 
 from app.reformulator import FlaskReformulator
 
@@ -15,7 +16,7 @@ class Config(object):
 
 
 class QuestionForm(FlaskForm):
-    question = StringField('Reformulate Question')
+    question = StringField('Reformulate Question', validators=[DataRequired()])
     submit = SubmitField('Reformulate!')
 
 
