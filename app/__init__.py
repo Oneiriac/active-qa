@@ -44,7 +44,8 @@ def submit_phrase():
     else:
         reformulations = []
 
-    return render_template('form.html', title='Reformulate Question', form=form, reformulations=reformulations)
+    return render_template('form.html', title='Reformulate Question', form=form, reformulations=reformulations,
+                           query=form.question._value())
 
 
 if __name__ == "__main__":

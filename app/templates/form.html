@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
+{% block head %}
+    <link rel="stylesheet" href="../static/background.css">
+{% endblock %}
+
 {% block content %}
-<section class="section">
+<section class="section video-container has-background-black is-marginless">
+    <video class="video" autoplay muted loop>
+        <source src="../static/late-night.webm" type="video/webm">
+    </video>
     <div class="container">
         <form action="" method="post" novalidate>
             {{ form.hidden_tag() }}
@@ -14,21 +21,29 @@
                 </div>
                 <div class="control">
                     {{ form.submit(
-                    class='button is-primary is-bold is-large'
+                    class='button is-primary is-rounded is-bold is-large'
                     ) }}
                 </div>
             </div>
         </form>
     </div>
 </section>
-<hr>
-<section class="section">
+{% if reformulations %}
+<section class="hero is-small is-white is-paddingless">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title">
+                Results for <i>{{ query }}</i>
+            </h2>
+        </div>
+    </div>
+</section>
+<section class="section is-paddingless has-background-white">
     <div class="container">
-        {% if reformulations %}
         <nav class="panel">
-            <p class="panel-heading">
-                Results
-            </p>
+<!--            <p class="panel-heading">-->
+<!--                Results-->
+<!--            </p>-->
             {% for r in reformulations %}
             <label class="panel-block">
                 <input type="checkbox">
@@ -40,12 +55,12 @@
 <!--                <strong>Add seed query</strong>-->
 <!--            </label>-->
             <div class="panel-block">
-                <button class="button is-link is-outlined is-fullwidth">
+                <button class="button is-primary is-bold is-fullwidth">
                     reset selections
                 </button>
             </div>
         </nav>
-        {% endif %}
     </div>
 </section>
+{% endif %}
 {% endblock %}
